@@ -23,6 +23,7 @@ function login() {
             localStorage.setItem("token", data);
             location.href = "home.html"
             alert("Đăng nhập thành công")
+            alert(document.getElementById("1").value)
         },
         error: function (err) {
             console.log(err)

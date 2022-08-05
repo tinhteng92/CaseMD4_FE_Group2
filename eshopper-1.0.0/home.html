@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -143,10 +143,15 @@
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0">
+
+                        <div class="navbar-nav ml-auto py-0" id="logoutn">
+                            <input type="submit" value="Logout" class="btn btn-black" onclick="logout()">
+                        <div class="navbar-nav ml-auto py-0" id="lore" >
                             <a href="" class="nav-item nav-link">Login</a>
                             <a href="" class="nav-item nav-link">Register</a>
                         </div>
+
+                    </div>
                     </div>
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -750,6 +755,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/logout.js"></script>
 </body>
 
 </html>
