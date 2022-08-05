@@ -34,7 +34,7 @@ getDetail();
 
 
 function orderProduct() {
-    alert("jdngvekns");
+
     let id = $("#id").val();
     let name = document.getElementById("nameProduct").innerText;
     let price = document.getElementById("price").innerText;
