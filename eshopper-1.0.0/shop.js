@@ -115,6 +115,6 @@ function showData(pageable){
 
 function getDetail(id){
     window.localStorage.setItem("id",id);
-    window.location.href="detailProduct.html";
+    window.location.href="detail.html";
 
 }

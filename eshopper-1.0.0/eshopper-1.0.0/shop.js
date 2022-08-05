@@ -62,8 +62,7 @@ function showData(pageable){
     for (let i = 0; i < arrProduct.length; i++){
         str += `
         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-        
-        <div class="card product-item border-0 mb-4">
+                    <div class="card product-item border-0 mb-4">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                             <img class="img-fluid w-100" src="${arrProduct[i].img}" alt="">
                         </div>
@@ -119,7 +118,7 @@ function search() {
             console.log(data);
             console.log("data");
 
-            showDataSearch(data);
+           showDataSearch(data);
         },
         error: function (err) {
             console.log(err)
@@ -139,7 +138,6 @@ function showDataSearch(data){
         "                                <input type=\"text\" class=\"form-control\" placeholder=\"Search by name\" id=\"search\" >\n" +
         "                                <div class=\"input-group-append\">\n" +
         "                                        <span class=\"input-group-text bg-transparent text-primary\" onclick='search()'>\n" +
-
         "                                            <i class=\"fa fa-search\"></i>\n" +
         "                                        </span>\n" +
         "                                </div>\n" +
@@ -179,16 +177,16 @@ function showDataSearch(data){
 
        `;
     }
-// str += `<div class="col-12 pb-1">
-//                 <nav aria-label="Page navigation">
-//                 <div class="pagination justify-content-center mb-3">
-//                 <button onclick="getData(${pageable.number - 1})">Previous</button>
-//                 <span>${pageable.number + 1}</span>/<span>${pageable.totalPages}</span>
-//                 <button onclick="getData(${pageable.number + 1})">Next</button>
-//                 </div>
-//
-//                 </nav>
-//             </div>`
+    // str += `<div class="col-12 pb-1">
+    //                 <nav aria-label="Page navigation">
+    //                 <div class="pagination justify-content-center mb-3">
+    //                 <button onclick="getData(${pageable.number - 1})">Previous</button>
+    //                 <span>${pageable.number + 1}</span>/<span>${pageable.totalPages}</span>
+    //                 <button onclick="getData(${pageable.number + 1})">Next</button>
+    //                 </div>
+    //
+    //                 </nav>
+    //             </div>`
 
     document.getElementById("showList").innerHTML = str;
 }
@@ -196,7 +194,7 @@ function showDataSearch(data){
 
 
 
-// HIỂN THỊ TÌM KIẾM THEO PAGEABLE ĐỂ SAU TÌM HIỂU
+            // HIỂN THỊ TÌM KIẾM THEO PAGEABLE ĐỂ SAU TÌM HIỂU
 // function search(pageNumber){
 //
 //     if(pageNumber < 0){
