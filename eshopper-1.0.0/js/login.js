@@ -20,7 +20,8 @@ function login() {
         data: JSON.stringify(account),
         //xử lý khi thành công
         success: function (data) {
-            localStorage.setItem("token", data);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("username", data.username)
             console.log("data")
             console.log(data)
             alert(data.username)
