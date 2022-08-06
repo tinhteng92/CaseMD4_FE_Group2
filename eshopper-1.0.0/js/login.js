@@ -20,9 +20,12 @@ function login() {
         data: JSON.stringify(account),
         //xử lý khi thành công
         success: function (data) {
-            localStorage.setItem("token", data);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userName",data.nameAccountLogin)
             location.href = "home.html"
             alert("Đăng nhập thành công")
+            // document.getElementById("UserName").innerHTML = localStorage.getItem("userName")
+
             alert(document.getElementById("1").value)
         },
         error: function (err) {
@@ -31,3 +34,4 @@ function login() {
         }
     })
 }
+
