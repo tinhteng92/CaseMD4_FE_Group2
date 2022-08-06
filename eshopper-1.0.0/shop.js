@@ -118,3 +118,25 @@ function getDetail(id){
     window.location.href="detail.html";
 
 }
+
+
+let userName =  localStorage.getItem("userName");
+function loginBar(userName){
+
+        alert(localStorage.getItem("userName"));
+        let str = "";
+        let token = localStorage.getItem("token")
+        if (token != "") {
+
+        str += `<a href="editAccount.html" class="nav-item nav-link" >Hello ${userName}</a>
+                <button class="nav-item nav-link" onClick="logout()">Logout</button>`
+    } else {
+        str += `<a href="login.html" class="nav-item nav-link">Login</a>
+                    <a href="" class="nav-item nav-link">Register</a>`
+    }
+
+        return str;
+
+}
+
+document.getElementById("loginBar").innerHTML = loginBar(userName);

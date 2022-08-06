@@ -23,8 +23,9 @@ function login() {
             localStorage.setItem("token", data.token);
             localStorage.setItem("userName",data.nameAccountLogin)
             location.href = "home.html"
-            alert("Đăng nhập thành công")
             // document.getElementById("UserName").innerHTML = localStorage.getItem("userName")
+            alert("Đăng nhập thành công")
+
 
             alert(document.getElementById("1").value)
         },
