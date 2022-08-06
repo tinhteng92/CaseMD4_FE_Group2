@@ -31,9 +31,7 @@ function getData(pageNumber){
 getData(0);
 
 function showData(pageable){
-    alert("show");
     let arrProduct = pageable.content;
-    alert(arrProduct.length);
     let str = "<div class=\"col-12 pb-1\">\n" +
         "                    <div class=\"d-flex align-items-center justify-content-between mb-4\">\n" +
         "                        <form action=\"\">\n" +

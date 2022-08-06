@@ -21,8 +21,17 @@ function login() {
         //xử lý khi thành công
         success: function (data) {
             localStorage.setItem("token", data);
-            location.href = "home.html"
-            alert("Đăng nhập thành công")
+            console.log("data")
+            console.log(data)
+            alert(data.username)
+
+            if (data.role == "ROLE_USER"){
+                location.href = "shop.html"
+            }else if (data.role == "ROLE_ADMIN"){
+                location.href = "home.html"
+            }
+
+            // alert("Đăng nhập thành công")
         },
         error: function (err) {
             console.log(err)
