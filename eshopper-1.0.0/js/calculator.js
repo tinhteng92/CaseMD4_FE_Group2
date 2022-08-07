@@ -1,4 +1,6 @@
 // let soLuongList = new Array(100);
+
+let idAccount = localStorage.getItem("idAccount");
 let arrayProduct = [];
 function totalOneIncrease(index) {
     // js tang so luong
@@ -9,40 +11,6 @@ function totalOneIncrease(index) {
         soluong[index].value = newSoluong;
     }
 
-    // let productList = document.getElementsByClassName("product");
-    // let product = {
-    //     idProduct: productList[index].value.idProduct,
-    //     nameProduct: productList[index].value.nameProduct,
-    //     price: productList[index].value.price,
-    //     quantity: productList[index].value.quantity,
-    //     content: productList[index].value.content,
-    //     description: productList[index].value.description,
-    //     size: productList[index].value.size,
-    //     color: productList[index].value.color,
-    //     category: productList[index].value.category,
-    //     img: productList[index].value.img
-    // }
-    //
-    // $.ajax({
-    //     type: "POST",
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     url: "http://localhost:8080/carts",
-    //     data: JSON.stringify(product),
-    //     //xử lý khi thành công
-    //     success: function (data) {
-    //         console.log("data")
-    //         console.log(data)
-    //         console.log("add to cart api success")
-    //         // getListProduct();
-    //     },
-    //     error: function (err) {
-    //         console.log(err)
-    //     }
-    // })
-    // js tong so luong cua 1 san pham
     let price = document.getElementsByClassName("giatien");
     let quantityP = document.getElementsByClassName("soluong");
     let totalOne = document.getElementsByClassName("tongtien");
@@ -50,6 +18,9 @@ function totalOneIncrease(index) {
     totalOne[index].innerText = parseInt(price[index].innerText) * parseInt(quantityP[index].value);
     totalPayment();
 }
+
+
+
 
 function totalOneDecrease(index) {
     let soluong = document.getElementsByClassName("soluong");
@@ -75,6 +46,8 @@ $(document).ready(
     getListProduct()
 );
 
+
+
 function getListProduct(){
     $.ajax({
         type: "GET",
@@ -96,27 +69,9 @@ function getListProduct(){
     })
 }
 
-// function getSoLuongList(){
-//     $.ajax({
-//         type: "GET",
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         url: "http://localhost:8080/carts/soLuongList",
-//         //xử lý khi thành công
-//         success: function (data) {
-//             console.log("data");
-//             console.log(data);
-//             for (let i = 0; i < data.length; i++) {
-//                soLuongList[i] = data[i];
-//             }
-//         },
-//         error: function (err) {
-//             console.log(err)
-//         }
-//     })
-// }
+
+
+
 function totalStart() {
     let totalStart = 0;
     let price = document.getElementsByClassName("giatien");
@@ -127,6 +82,8 @@ function totalStart() {
 }
 
 
+
+
 function totalPayment() {
     let totalOne = document.getElementsByClassName("tongtien");
     let totalStart = 0;
@@ -135,6 +92,9 @@ function totalPayment() {
     }
     document.getElementById("totalPayment").innerText = totalStart;
 }
+
+
+
 
 
 function showListProductToCart(productList) {
@@ -170,6 +130,8 @@ function showListProductToCart(productList) {
     document.getElementById("showListToCart").innerHTML = str;
 }
 
+
+
 function deleteProductFromCart(idProduct) {
     $.ajax({
         type: "DELETE",
@@ -190,6 +152,10 @@ function deleteProductFromCart(idProduct) {
     })
 }
 
+
+
+
+
 let arrayQuantity = [];
 function createReceipt() {
     let quantityP = document.getElementsByClassName("soluong");
@@ -204,7 +170,7 @@ function createReceipt() {
         timePayment : timeNow,
         totalPrice : totalPayment.innerText,
         account : {
-            idAccount : 1
+            idAccount : idAccount
         }
     }
 
@@ -235,7 +201,7 @@ function createReceipt() {
             quantityOrder : arrayQuantity[i],
             timeOrder : timeNow,
             account : {
-                idAccount : 1
+                idAccount : idAccount
             }
         }
         $.ajax({
@@ -282,7 +248,10 @@ function createReceipt() {
     }
     alert("Thank you for buying");
     getListEmpty();
+    alert("check")
 }
+
+
 
 function getListEmpty(){
     $.ajax({
@@ -294,6 +263,7 @@ function getListEmpty(){
         url: "http://localhost:8080/carts",
         //xử lý khi thành công
         success: function (data) {
+            alert("bhbdk")
             console.log("data");
             console.log(data);
             showListProductToCart(data);

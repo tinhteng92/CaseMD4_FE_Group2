@@ -22,9 +22,10 @@ function login() {
         success: function (data) {
             localStorage.setItem("token", data.token);
             localStorage.setItem("username", data.username)
+            localStorage.setItem("idAccount", data.idAccount)
             console.log("data")
             console.log(data)
-            alert(data.username)
+            alert(data.idAccount)
 
             if (data.role == "ROLE_USER"){
                 location.href = "shop.html"

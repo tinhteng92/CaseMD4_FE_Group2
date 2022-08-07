@@ -1,6 +1,7 @@
 let id = localStorage.getItem("id");
 
 
+
 function getDetail() {
     $.ajax({
         type: "GET",
@@ -12,8 +13,7 @@ function getDetail() {
         //xử lý khi thành công
         success: function (data) {
             // document.getElementById("tbody").innerHTML =  showDetail(data);
-            console.log("data");
-            console.log(data);
+
             showDetail(data);
 
         },
@@ -43,8 +43,10 @@ getDetail();
 
 
 function orderProduct() {
+
     let quantity = $("#quantity").val();
     if (quantity > 0) {
+
         let id = $("#id").val();
 
         let idCategory = $("#idCategory").val();
@@ -89,6 +91,7 @@ function orderProduct() {
         }
 
         console.log(product);
+
         $.ajax({
             type: "POST",
             headers: {
@@ -101,7 +104,7 @@ function orderProduct() {
             success: function (data) {
                 console.log("data")
                 console.log(data)
-                console.log("add to cart api success")
+                alert("add to cart api success")
             },
             error: function (err) {
                 console.log(err)
