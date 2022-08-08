@@ -1,8 +1,6 @@
 let token = localStorage.getItem("token")
 getEditprofile()
 function showEditprofile(Account) {
-    console.log("accccc")
-    console.log(Account)
     document.getElementById("username").innerHTML = Account.username;
     document.getElementById("password").value = Account.password;
     document.getElementById("displayname").value = Account.displayName;
@@ -36,6 +34,7 @@ function getEditprofile(userName) {
 
 
 function Editpr() {
+    let idAccount = document.getElementById("idAccount").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let displayname = document.getElementById("displayname").value;
@@ -45,6 +44,7 @@ function Editpr() {
 
 
     let Account = {
+        idAccount:idAccount,
         username:username,
         password: password,
         displayname: displayname,
@@ -66,11 +66,12 @@ function callEditpr(Account){
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + token);
         },
-        url: "http://localhost:8080/profile",
+        url: "http://localhost:8080/profile/edit",
         data: JSON.stringify(Account),
         //xử lý khi thành công
         success: function (data) {
             console.log(data)
+            alert("Lưu thông tin thành công")
         },
         error: function (err) {
             console.log(err)
