@@ -42,16 +42,17 @@ function register() {
     if (username == "" || username == null) {
         messageErr = " Please fill in the information!";
         document.getElementById("nullUserName").innerText = messageErr;
-
-    }else {
-        for (let i = 0; i < listAccount.length; i++) {
-            if (listAccount.username == username) {
-                messageErr = " This account has already existed! "
-                document.getElementById("userName").innerText = messageErr;
-            }
-        }
-        !check;
     }
+
+    // else {
+    //     for (let i = 0; i < listAccount.length; i++) {
+    //         if (listAccount.username == username) {
+    //             messageErr = " This account has already existed! "
+    //             document.getElementById("userName").innerText = messageErr;
+    //         }
+    //     }
+    //     !check;
+    // }
     if (displayName == "" || displayName == null) {
         messageErr = " Please fill in the information!";
         document.getElementById("nullDisplayname").innerText = messageErr;
@@ -73,7 +74,7 @@ function register() {
         document.getElementById("nullPhoneNumber").innerText = messageErr;
         !check;
     }
-    if (password == "" || password == null) {
+    if (passwordd == "" || passwordd == null) {
         messageErr = " Please fill in the information!";
         document.getElementById("nullPassword").innerText = messageErr;
         return !check;
