@@ -1,5 +1,26 @@
 getData();
 
+function show(page) {
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: "http://localhost:8080/product?page="+page,
+        //xử lý khi thành công
+        success: function (data) {
+            console.log(data)
+            showData(data);
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+
+
 function create(data) {
     let nameProduct = $("#nameProduct").val();
     let price = $("#price").val();
@@ -55,38 +76,42 @@ function getData() {
         success: function (data) {
             console.log("data")
             console.log(data)
-            showData(data.content);
+            showData(data);
         },
         error: function (err) {
             console.log(err)
         }
     })
 }
-
 function showData(data) {
+    let page = data.content;
     let str = "";
-    for (const d of data) {
-        str += ` 
+    let str1="";
+    for (const p of page) {
+        str += `
          <tr>
-            <td>${d.idProduct}</td>
-            <td>${d.nameProduct}</td>
-            <td><img src="${d.img}" width="200" height="200"></td>
-            <td>${d.price}</td>
-            <td>${d.quantity}</td>
-            <td>${d.content}</td>
-            <td>${d.description}</td>
-            <td>${d.size.nameSize}</td>
-            <td>${d.color.nameColor}</td>
-            <td>${d.category.nameCategory}</td>
-            <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModalEdit" onclick="getEdit(${d.idProduct})">Edit</button></td>
-            <td><button type="button" class="btn btn-danger" onclick="deleteProduct(${d.idProduct})">Delete</button></td>
+            <td>${p.idProduct}</td>
+            <td>${p.nameProduct}</td>
+            <td><img src="${p.img}" width="200" height="200"></td>
+            <td>${p.price}</td>
+            <td>${p.quantity}</td>
+            <td>${p.content}</td>
+            <td>${p.description}</td>
+            <td>${p.size.nameSize}</td>
+            <td>${p.color.nameColor}</td>
+            <td>${p.category.nameCategory}</td>
+            <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#myModalEdit" onclick="getEdit(${p.idProduct})">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteProduct(${p.idProduct})">Delete</button></td>
         </tr>`;
-
-        console.log("id" + d.idProduct)
     }
-    document.getElementById("show").innerHTML = str;
+    document.querySelector("#show").innerHTML = str;
+    for (let i = 0; i < data.totalPages; i++) {
+        str1 +=`<div style="display: inline-block; display: flex"><button style="float: right; padding: 8px 16px; border: 1px; text-decoration: none"  href="#" onclick="show(${i})">${i+1}</></div>`
+    }
+    document.querySelector(".phan-trang").innerHTML = str1
 
 }
+
 function uploadFile() {
     let fileImg = document.getElementById("img").files;
     if (fileImg.length === 0) {
@@ -108,20 +133,20 @@ function uploadFile() {
 }
 
 function deleteProduct(id) {
-    console.log(id + "id")
+
     confirm("bạn muốn xóa không ?") ?
 
         $.ajax({
-            type: "DELETE",
+            type: "GET",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            url: "http://localhost:8080/product/" + id,
+            url: "http://localhost:8080/product/delete/" + id,
 
 
             success: function (data) {
-                console.log("dgtfh")
+
                 getData();
             },
             error: function (err) {
