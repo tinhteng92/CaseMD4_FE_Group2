@@ -3,15 +3,15 @@ function loginBar(userName){
 
     let str = "";
     let token = localStorage.getItem("token")
-    if (token != "") {
+    if (userName != null) {
 
         str += `<a href="editAccount.html" class="nav-item nav-link" >Hello ${userName}</a>
-                <a href="" class="nav-item nav-link" onClick="logout()">Logout</a>`
+                <a href="shop.html" class="nav-item nav-link" onClick="logout()">Logout</a>`
 
                 // <button class="nav-item nav-link" onClick="logout()">Logout</button>`
     } else {
         str += `<a href="login.html" class="nav-item nav-link">Login</a>
-                    <a href="" class="nav-item nav-link">Register</a>`
+                    <a href="register.html" class="nav-item nav-link">Register</a>`
     }
 
     return str;

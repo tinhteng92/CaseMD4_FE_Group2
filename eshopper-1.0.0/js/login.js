@@ -7,6 +7,7 @@ function login() {
         username: username,
         password: password
     }
+    let token = localStorage.getItem("token");
 
     $.ajax({
         type: "POST",
@@ -25,12 +26,14 @@ function login() {
             localStorage.setItem("idAccount", data.idAccount)
             console.log("data")
             console.log(data)
-            alert(data.idAccount)
+
 
             if (data.role == "ROLE_USER"){
                 location.href = "shop.html"
             }else if (data.role == "ROLE_ADMIN"){
-                location.href = "home.html"
+                location.href = "Admin.html"
+            }else {
+                location.href = "404.html";
             }
 
             // alert("Đăng nhập thành công")

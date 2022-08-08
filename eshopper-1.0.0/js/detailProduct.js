@@ -1,5 +1,5 @@
 let id = localStorage.getItem("id");
-
+let token = localStorage.getItem("token");
 
 
 function getDetail() {
@@ -7,7 +7,9 @@ function getDetail() {
         type: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": 'Bearer ' + token
+
         },
         url: "http://localhost:8080/home/" + id,
         //xử lý khi thành công
@@ -44,74 +46,84 @@ getDetail();
 
 function orderProduct() {
 
-    let quantity = $("#quantity").val();
-    if (quantity > 0) {
+    if (token == null){
+        alert("Please login!");
+        location.href="demo_detail.html";
+    }else {
 
-        let id = $("#id").val();
+        let quantity = $("#quantity").val();
 
-        let idCategory = $("#idCategory").val();
-        let name = document.getElementById("nameProduct").innerText;
-        let price = document.getElementById("price").innerText;
-        let content = document.getElementById("content").innerText;
-        let description = document.getElementById("description").innerText;
-        let img = document.getElementById("image").src;
+        if (quantity > 0) {
 
-        let idSize = document.getElementById("idSize").value;
-        // let arr = document.getElementsByName("size");
-        // for (let i = 0; i < arr.length; i++) {
-        //     if (arr[i].checked) {
-        //         size = arr[i].value;
-        //     }
-        // }
-        let idColor = document.getElementById("idColor").value;
-        // let arr2 = document.getElementsByName("color");
-        // for (let i = 0; i < arr2.length; i++) {
-        //     if (arr2[i].checked) {
-        //         color = arr2[i].value;
-        //     }
-        // }
+            let id = $("#id").val();
 
-        let product = {
-            idProduct: id,
-            nameProduct: name,
-            price: price,
-            quantity: quantity,
-            content: content,
-            description: description,
-            size: {
-                idSize: idSize
-            },
-            color: {
-                idColor: idColor
-            },
-            category: {
-                idCategory: idCategory
-            },
-            img: img
-        }
+            let idCategory = $("#idCategory").val();
+            let name = document.getElementById("nameProduct").innerText;
+            let price = document.getElementById("price").innerText;
+            let content = document.getElementById("content").innerText;
+            let description = document.getElementById("description").innerText;
+            let img = document.getElementById("image").src;
 
-        console.log(product);
+            let idSize = document.getElementById("idSize").value;
+            // let arr = document.getElementsByName("size");
+            // for (let i = 0; i < arr.length; i++) {
+            //     if (arr[i].checked) {
+            //         size = arr[i].value;
+            //     }
+            // }
+            let idColor = document.getElementById("idColor").value;
+            // let arr2 = document.getElementsByName("color");
+            // for (let i = 0; i < arr2.length; i++) {
+            //     if (arr2[i].checked) {
+            //         color = arr2[i].value;
+            //     }
+            // }
 
-        $.ajax({
-            type: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            url: "http://localhost:8080/carts",
-            data: JSON.stringify(product),
-            //xử lý khi thành công
-            success: function (data) {
-                console.log("data")
-                console.log(data)
-                alert("add to cart api success")
-            },
-            error: function (err) {
-                console.log(err)
+            let product = {
+                idProduct: id,
+                nameProduct: name,
+                price: price,
+                quantity: quantity,
+                content: content,
+                description: description,
+                size: {
+                    idSize: idSize
+                },
+                color: {
+                    idColor: idColor
+                },
+                category: {
+                    idCategory: idCategory
+                },
+                img: img
             }
-        })
-    } else {
-        alert("Out of stock Bro!");
+
+            console.log(product);
+
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Authorization": 'Bearer ' + token
+                },
+                url: "http://localhost:8080/user/carts",
+                data: JSON.stringify(product),
+                //xử lý khi thành công
+                success: function (data) {
+                    console.log("data")
+                    console.log(data)
+                    alert("add to cart api success")
+                    location.href="cart.html";
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        } else {
+            alert("Out of stock Bro!");
+        }
     }
 
 }

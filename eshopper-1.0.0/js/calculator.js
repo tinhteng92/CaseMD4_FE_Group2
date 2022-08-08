@@ -1,4 +1,5 @@
 // let soLuongList = new Array(100);
+let token = localStorage.getItem("token");
 
 let idAccount = localStorage.getItem("idAccount");
 let arrayProduct = [];
@@ -53,9 +54,10 @@ function getListProduct(){
         type: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": 'Bearer ' + token
         },
-        url: "http://localhost:8080/carts",
+        url: "http://localhost:8080/user/carts",
         //xử lý khi thành công
         success: function (data) {
             console.log("data");
@@ -134,12 +136,13 @@ function showListProductToCart(productList) {
 
 function deleteProductFromCart(idProduct) {
     $.ajax({
-        type: "DELETE",
+        type: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": 'Bearer ' + token
         },
-        url: "http://localhost:8080/carts/" + idProduct,
+        url: "http://localhost:8080/user/carts/delete/" + idProduct,
         //xử lý khi thành công
         success: function (data) {
             console.log("Delete product");
@@ -179,7 +182,8 @@ function createReceipt() {
         type: "POST",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": 'Bearer ' + token
         },
         url: "http://localhost:8080/receipts",
         data: JSON.stringify(receipt),
@@ -208,7 +212,8 @@ function createReceipt() {
             type: "POST",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": 'Bearer ' + token
             },
             url: "http://localhost:8080/detailReceipts",
             data: JSON.stringify(detailReceipt),
@@ -230,7 +235,8 @@ function createReceipt() {
             type: "PUT",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": 'Bearer ' + token
             },
             url: "http://localhost:8080/home",
             data: JSON.stringify(arrayProduct[i]),
@@ -246,24 +252,25 @@ function createReceipt() {
             }
         })
     }
-    alert("Thank you for buying");
+    alert("Order Successful!");
     getListEmpty();
-    alert("check")
+
 }
 
 
 
 function getListEmpty(){
     $.ajax({
-        type: "DELETE",
+        type: "GET",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": 'Bearer ' + token
         },
-        url: "http://localhost:8080/carts",
+        url: "http://localhost:8080/user/carts/delete",
         //xử lý khi thành công
         success: function (data) {
-            alert("bhbdk")
+
             console.log("data");
             console.log(data);
             showListProductToCart(data);
