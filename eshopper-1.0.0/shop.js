@@ -128,8 +128,12 @@ function loginBar(userName){
         let token = localStorage.getItem("token")
         if (token != "") {
 
-        str += `<a href="editAccount.html" class="nav-item nav-link" >Hello ${userName}</a>
-                <button class="nav-item nav-link" onClick="logout()">Logout</button>`
+        str += `<div class="nav-item dropdown">
+                                <a href="editAccount.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Hello ${userName}</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a onclick="logout()" class="dropdown-item" >Logout</a>
+                                </div>
+                            </div>`
     } else {
         str += `<a href="login.html" class="nav-item nav-link">Login</a>
                     <a href="" class="nav-item nav-link">Register</a>`
