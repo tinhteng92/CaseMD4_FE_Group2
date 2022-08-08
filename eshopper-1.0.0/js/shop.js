@@ -228,3 +228,71 @@ function showDataSearch(data){
 // }
 //
 // search(0);
+
+function filterBySize(){
+    let size = "";
+    let arr = document.getElementsByName("size");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked === true) {
+            size = arr[i].value;
+           alert(size);
+        }
+
+    }
+
+
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+
+        },
+        url: "http://localhost:8080/home/size/" + size,
+        //xử lý khi thành công
+        success: function (data) {
+            console.log(data)
+            // document.getElementById("tbody").innerHTML =  showDetail(data);
+
+            showDataSearch(data);
+
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+function filterByColor(){
+    let color = "";
+    let arr = document.getElementsByName("color");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked === true) {
+            color = arr[i].value;
+
+        }
+
+    }
+
+
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+
+        },
+        url: "http://localhost:8080/home/color/" + color,
+        //xử lý khi thành công
+        success: function (data) {
+            console.log(data)
+            // document.getElementById("tbody").innerHTML =  showDetail(data);
+
+            showDataSearch(data);
+
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
