@@ -47,14 +47,14 @@ function showUser(data) {
 
 function deleteData(id) {
     $.ajax({
-        type: "DELETE",
+        type: "GET",
         headers: {
             //kiểu dữ liệu nhận về
             'Accept': 'application/json',
             // kiểu truyền đi
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8080/deleteUser/"+id,
+        url: "http://localhost:8080/delete/"+id,
         //xử lý khi thành công
         success: function (data) {
             // listUser = data;
