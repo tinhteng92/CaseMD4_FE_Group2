@@ -185,7 +185,7 @@ function createReceipt() {
             'Content-Type': 'application/json',
             "Authorization": 'Bearer ' + token
         },
-        url: "http://localhost:8080/receipts",
+        url: "http://localhost:8080/user/receipts",
         data: JSON.stringify(receipt),
         //xử lý khi thành công
         success: function (data) {
@@ -215,7 +215,7 @@ function createReceipt() {
                 'Content-Type': 'application/json',
                 "Authorization": 'Bearer ' + token
             },
-            url: "http://localhost:8080/detailReceipts",
+            url: "http://localhost:8080/user/detailReceipts",
             data: JSON.stringify(detailReceipt),
             //xử lý khi thành công
             success: function (data) {
@@ -236,7 +236,7 @@ function createReceipt() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                "Authorization": 'Bearer ' + token
+
             },
             url: "http://localhost:8080/home",
             data: JSON.stringify(arrayProduct[i]),

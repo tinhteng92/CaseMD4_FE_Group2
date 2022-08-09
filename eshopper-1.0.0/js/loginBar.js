@@ -5,7 +5,7 @@ function loginBar(userName){
     let token = localStorage.getItem("token")
     if (userName != null) {
 
-        str += `<a href="editAccount.html" class="nav-item nav-link" onclick="editUser">Hello ${userName}</a>
+        str += `<a href="editprofile.html" class="nav-item nav-link" >Welcome ${userName}</a>
                 <a href="shop.html" class="nav-item nav-link" onClick="logout()">Logout</a>`
 
                 // <button class="nav-item nav-link" onClick="logout()">Logout</button>`

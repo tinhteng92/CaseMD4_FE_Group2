@@ -133,19 +133,19 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="Admin.html" class="nav-item nav-link active">Product Management</a>
                         <a href="showUser.html" class="nav-item nav-link">User Management</a>
-                        <a href="receiptionList.html" class="nav-item nav-link">Receipt Management</a>
-<!--                        <div class="nav-item dropdown">-->
-<!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>-->
-<!--                            <div class="dropdown-menu rounded-0 m-0">-->
-<!--                                <a href="cart.html" class="dropdown-item">Shopping Cart</a>-->
-<!--                                <a href="checkout.html" class="dropdown-item">Checkout</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <a href="contact.html" class="nav-item nav-link">Contact</a>-->
+                        <a href="receiptList.html" class="nav-item nav-link">Receipt</a>
+                        <!--                        <div class="nav-item dropdown">-->
+                        <!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>-->
+                        <!--                            <div class="dropdown-menu rounded-0 m-0">-->
+                        <!--                                <a href="cart.html" class="dropdown-item">Shopping Cart</a>-->
+                        <!--                                <a href="checkout.html" class="dropdown-item">Checkout</a>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <a href="contact.html" class="nav-item nav-link">Contact</a>-->
                     </div>
                     <div class="navbar-nav ml-auto py-0" id="loginBar">
-<!--                        <a href="" class="nav-item nav-link">Login</a>-->
-<!--                        <a href="" class="nav-item nav-link">Register</a>-->
+                        <!--                        <a href="" class="nav-item nav-link">Login</a>-->
+                        <!--                        <a href="" class="nav-item nav-link">Register</a>-->
                     </div>
                 </div>
             </nav>
@@ -191,201 +191,225 @@
 
 <!-- Categories Start -->
 <div class="container">
-    <h2>Product Table</h2>
+    <!--  <h2>Product Table</h2>-->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create</button>
-    <br>
-    <input type="text" id="search" placeholder="search" oninput="search()">
-
-    <table class="table">
+    <div align="center">
+        <h2>List receipt</h2><br/>
+        <p></p>
+    </div>
+    <table class="table table-hover">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Img</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Content</th>
-            <th>Description</th>
-            <th>Size</th>
-            <th>Color</th>
-            <th>Category</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th scope="col">#</th>
+            <th scope="col">Name Product</th>
+            <th scope="col">Image</th>
+            <th scope="col">Size</th>
+            <th scope="col">Color</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
         </tr>
         </thead>
-        <tbody id="show">
+        <tbody id="showDetailReceipt">
+
         </tbody>
-    </table><br>
+    </table>
 
-    <div class="phan-trang" style="display: flex;"></div>
+
+
 </div>
-<!--    div>-->
 
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
+<!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create</button>-->
+<!--  <br>-->
+<!--  <input type="text" id="search" placeholder="search" oninput="search()">-->
 
-            <div class="modal-header">
-                <h4 class="modal-title">Create Product</h4>
+<!--  <table class="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>#</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>Img</th>-->
+<!--      <th>Price</th>-->
+<!--      <th>Quantity</th>-->
+<!--      <th>Content</th>-->
+<!--      <th>Description</th>-->
+<!--      <th>Size</th>-->
+<!--      <th>Color</th>-->
+<!--      <th>Category</th>-->
+<!--      <th>Edit</th>-->
+<!--      <th>Delete</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody id="show">-->
 
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-
-                <table>
-                    <tr>
-                        <td><input  id="nameProduct" placeholder="nameProduct"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="img" type="file"></td>
-                    </tr>
-
-                    <tr>
-                        <td><input id="price" placeholder="price"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="quantity" placeholder="quantity"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="content" placeholder="content"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="description" placeholder="description"></td>
-                    </tr>
-                    <tr><td>
-                        <select id="size">
-                            <option  value="1">XS</option>
-                            <option  value="2">S</option>
-                            <option  value="3">M</option>
-                            <option  value="4">L</option>
-                            <option  value="5">XL</option>
-                        </select>
-                    </td></tr>
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
 
 
-                    <tr><td>
-                        <select id="color">
-                            <option  value="1">Black</option>
-                            <option  value="2">White</option>
-                            <option  value="3">Red</option>
-                            <option  value="4">Blue</option>
-                            <option  value="5">Green</option>
-                        </select>
+<!--<div class="modal fade" id="myModal">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
 
-                    </td></tr>
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title">Create Product</h4>-->
 
-                    <tr><td>
-                        <select id="category">
-                            <option value="1">Dresses</option>
-                            <option value="2">Shirts</option>
-                            <option value="3">Jeans</option>
-                            <option value="4">Swimwear</option>
-                            <option value="5">Sleepwear</option>
-                            <option value="6">Sportswear</option>
-                            <option value="7">Jumpsuits</option>
-                            <option value="8">Blazers</option>
-                            <option value="9">Jackets</option>
-                            <option value="10">Shoes</option>
-                        </select>
-                    </td></tr>
-                </table>
-            </div>
+<!--        <button type="button" class="close" data-dismiss="modal">×</button>-->
+<!--      </div>-->
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="uploadFile()">Create
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+<!--      &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--      <div class="modal-body">-->
 
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModalEdit">
-    <div class="modal-dialog">
-        <div class="modal-content">
+<!--        <table>-->
+<!--          <tr>-->
+<!--            <td><input  id="nameProduct" placeholder="nameProduct"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="img" type="file"></td>-->
+<!--          </tr>-->
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Edit Product</h4>
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <input hidden id="idProduct">
-                <table>
-                    <tr>
-                        <td><input  id="nameProductEdit" placeholder="nameProduct"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="imgEdit" type="file"></td>
-                    </tr>
-                    <tr><td><img id="imageEdit" width="200" height="200"></td></tr>
-                    <tr>
-                        <td><input id="priceEdit" placeholder="price"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="quantityEdit" placeholder="quantity"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="contentEdit" placeholder="content"></td>
-                    </tr>
-                    <tr>
-                        <td><input id="descriptionEdit" placeholder="description"></td>
-                    </tr>
-                    <tr><td>
-                        <select id="sizeEdit">
-                            <option  value="1">XS</option>
-                            <option  value="2">S</option>
-                            <option  value="3">M</option>
-                            <option  value="4">L</option>
-                            <option  value="5">XL</option>
-                        </select>
-                    </td></tr>
+<!--          <tr>-->
+<!--            <td><input id="price" placeholder="price"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="quantity" placeholder="quantity"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="content" placeholder="content"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="description" placeholder="description"></td>-->
+<!--          </tr>-->
+<!--          <tr><td>-->
+<!--            <select id="size">-->
+<!--              <option  value="1">XS</option>-->
+<!--              <option  value="2">S</option>-->
+<!--              <option  value="3">M</option>-->
+<!--              <option  value="4">L</option>-->
+<!--              <option  value="5">XL</option>-->
+<!--            </select>-->
+<!--          </td></tr>-->
 
 
-                    <tr><td>
-                        <select id="colorEdit">
-                            <option  value="1">Black</option>
-                            <option  value="2">White</option>
-                            <option  value="3">Red</option>
-                            <option  value="4">Blue</option>
-                            <option  value="5">Green</option>
-                        </select>
+<!--          <tr><td>-->
+<!--            <select id="color">-->
+<!--              <option  value="1">Black</option>-->
+<!--              <option  value="2">White</option>-->
+<!--              <option  value="3">Red</option>-->
+<!--              <option  value="4">Blue</option>-->
+<!--              <option  value="5">Green</option>-->
+<!--            </select>-->
 
-                    </td></tr>
+<!--          </td></tr>-->
 
-                    <tr><td>
-                        <select id="categoryEdit">
-                            <option value="1">Dresses</option>
-                            <option value="2">Shirts</option>
-                            <option value="3">Jeans</option>
-                            <option value="4">Swimwear</option>
-                            <option value="5">Sleepwear</option>
-                            <option value="6">Sportswear</option>
-                            <option value="7">Jumpsuits</option>
-                            <option value="8">Blazers</option>
-                            <option value="9">Jackets</option>
-                            <option value="10">Shoes</option>
-                        </select>
-                    </td></tr>
-                </table>
-            </div>
+<!--          <tr><td>-->
+<!--            <select id="category">-->
+<!--              <option value="1">Dresses</option>-->
+<!--              <option value="2">Shirts</option>-->
+<!--              <option value="3">Jeans</option>-->
+<!--              <option value="4">Swimwear</option>-->
+<!--              <option value="5">Sleepwear</option>-->
+<!--              <option value="6">Sportswear</option>-->
+<!--              <option value="7">Jumpsuits</option>-->
+<!--              <option value="8">Blazers</option>-->
+<!--              <option value="9">Jackets</option>-->
+<!--              <option value="10">Shoes</option>-->
+<!--            </select>-->
+<!--          </td></tr>-->
+<!--        </table>-->
+<!--      </div>-->
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="checkEdit()">Edit</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+<!--      &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="uploadFile()">Create-->
+<!--        </button>-->
+<!--        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+<!--      </div>-->
 
-        </div>
-    </div>
-</div>
-<!-- Categories End -->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="modal fade" id="myModalEdit">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+
+<!--      &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title">Edit Product</h4>-->
+<!--        <button type="button" class="close" data-dismiss="modal">×</button>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--      <div class="modal-body">-->
+<!--        <input hidden id="idProduct">-->
+<!--        <table>-->
+<!--          <tr>-->
+<!--            <td><input  id="nameProductEdit" placeholder="nameProduct"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="imgEdit" type="file"></td>-->
+<!--          </tr>-->
+<!--          <tr><td><img id="imageEdit" width="200" height="200"></td></tr>-->
+<!--          <tr>-->
+<!--            <td><input id="priceEdit" placeholder="price"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="quantityEdit" placeholder="quantity"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="contentEdit" placeholder="content"></td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td><input id="descriptionEdit" placeholder="description"></td>-->
+<!--          </tr>-->
+<!--          <tr><td>-->
+<!--            <select id="sizeEdit">-->
+<!--              <option  value="1">XS</option>-->
+<!--              <option  value="2">S</option>-->
+<!--              <option  value="3">M</option>-->
+<!--              <option  value="4">L</option>-->
+<!--              <option  value="5">XL</option>-->
+<!--            </select>-->
+<!--          </td></tr>-->
+
+
+<!--          <tr><td>-->
+<!--            <select id="colorEdit">-->
+<!--              <option  value="1">Black</option>-->
+<!--              <option  value="2">White</option>-->
+<!--              <option  value="3">Red</option>-->
+<!--              <option  value="4">Blue</option>-->
+<!--              <option  value="5">Green</option>-->
+<!--            </select>-->
+
+<!--          </td></tr>-->
+
+<!--          <tr><td>-->
+<!--            <select id="categoryEdit">-->
+<!--              <option value="1">Dresses</option>-->
+<!--              <option value="2">Shirts</option>-->
+<!--              <option value="3">Jeans</option>-->
+<!--              <option value="4">Swimwear</option>-->
+<!--              <option value="5">Sleepwear</option>-->
+<!--              <option value="6">Sportswear</option>-->
+<!--              <option value="7">Jumpsuits</option>-->
+<!--              <option value="8">Blazers</option>-->
+<!--              <option value="9">Jackets</option>-->
+<!--              <option value="10">Shoes</option>-->
+<!--            </select>-->
+<!--          </td></tr>-->
+<!--        </table>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="checkEdit()">Edit</button>-->
+<!--        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 <!-- Categories End -->
 
 
@@ -480,7 +504,10 @@
 
 </html>
 <script src="js/main.js"></script>
-<script src="js/edit.js"></script>
-<script src="js/crud.js"></script>
+<!--<script src="js/edit.js"></script>-->
+<!--<script src="js/crud.js"></script>-->
 <script src="js/loginBar.js"></script>
 <script src="js/logout.js"></script>
+
+
+<script src="js/detailReceiptOfAdmin.js"></script>

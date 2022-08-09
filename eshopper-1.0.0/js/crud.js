@@ -4,6 +4,7 @@ let token = localStorage.getItem("token");
 getData();
 
 
+
 function create(data) {
     let nameProduct = $("#nameProduct").val();
     let price = $("#price").val();
