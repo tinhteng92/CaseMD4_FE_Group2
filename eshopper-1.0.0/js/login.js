@@ -7,6 +7,7 @@ function login() {
         username: username,
         password: password
     }
+    let token = localStorage.getItem("token");
 
     $.ajax({
         type: "POST",
@@ -20,25 +21,26 @@ function login() {
         data: JSON.stringify(account),
         //xử lý khi thành công
         success: function (data) {
-
-            alert(data.role)
             localStorage.setItem("token", data.token);
-            localStorage.setItem("userName", data.nameAccountLogin)
-            location.href = "shop.html"
-            // document.getElementById("UserName").innerHTML = localStorage.getItem("userName")
-            alert("Đăng nhập thành công")
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("idAccount", data.idAccount)
+            console.log("data")
+            console.log(data)
+
+
             if (data.role == "ROLE_USER"){
-                location.href = "home.html"
-            }
-            else if (data.role == "ROLE_ADMIN"){
                 location.href = "shop.html"
-                // alert(document.getElementById("1").value)
-                }
-            },
+            }else if (data.role == "ROLE_ADMIN"){
+                location.href = "Admin.html"
+            }else {
+                location.href = "404.html";
+            }
+
+            // alert("Đăng nhập thành công")
+        },
         error: function (err) {
             console.log(err)
             alert("Sai tài khoản hoặc mật khẩu. Vui lòng nhập lại!")
         }
     })
 }
-

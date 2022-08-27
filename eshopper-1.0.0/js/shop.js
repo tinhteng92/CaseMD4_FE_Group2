@@ -31,9 +31,7 @@ function getData(pageNumber){
 getData(0);
 
 function showData(pageable){
-    alert("show");
     let arrProduct = pageable.content;
-    alert(arrProduct.length);
     let str = "<div class=\"col-12 pb-1\">\n" +
         "                    <div class=\"d-flex align-items-center justify-content-between mb-4\">\n" +
         "                        <form action=\"\">\n" +
@@ -62,8 +60,7 @@ function showData(pageable){
     for (let i = 0; i < arrProduct.length; i++){
         str += `
         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-        
-        <div class="card product-item border-0 mb-4">
+                    <div class="card product-item border-0 mb-4">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                             <img class="img-fluid w-100" src="${arrProduct[i].img}" alt="">
                         </div>
@@ -98,7 +95,7 @@ function showData(pageable){
 
 function getDetail(id){
     window.localStorage.setItem("id",id);
-    window.location.href="detail.html";
+    window.location.href="demo_detail.html";
 
 }
 
@@ -119,7 +116,7 @@ function search() {
             console.log(data);
             console.log("data");
 
-            showDataSearch(data);
+           showDataSearch(data);
         },
         error: function (err) {
             console.log(err)
@@ -139,7 +136,6 @@ function showDataSearch(data){
         "                                <input type=\"text\" class=\"form-control\" placeholder=\"Search by name\" id=\"search\" >\n" +
         "                                <div class=\"input-group-append\">\n" +
         "                                        <span class=\"input-group-text bg-transparent text-primary\" onclick='search()'>\n" +
-
         "                                            <i class=\"fa fa-search\"></i>\n" +
         "                                        </span>\n" +
         "                                </div>\n" +
@@ -179,16 +175,16 @@ function showDataSearch(data){
 
        `;
     }
-// str += `<div class="col-12 pb-1">
-//                 <nav aria-label="Page navigation">
-//                 <div class="pagination justify-content-center mb-3">
-//                 <button onclick="getData(${pageable.number - 1})">Previous</button>
-//                 <span>${pageable.number + 1}</span>/<span>${pageable.totalPages}</span>
-//                 <button onclick="getData(${pageable.number + 1})">Next</button>
-//                 </div>
-//
-//                 </nav>
-//             </div>`
+    // str += `<div class="col-12 pb-1">
+    //                 <nav aria-label="Page navigation">
+    //                 <div class="pagination justify-content-center mb-3">
+    //                 <button onclick="getData(${pageable.number - 1})">Previous</button>
+    //                 <span>${pageable.number + 1}</span>/<span>${pageable.totalPages}</span>
+    //                 <button onclick="getData(${pageable.number + 1})">Next</button>
+    //                 </div>
+    //
+    //                 </nav>
+    //             </div>`
 
     document.getElementById("showList").innerHTML = str;
 }
@@ -196,7 +192,7 @@ function showDataSearch(data){
 
 
 
-// HIỂN THỊ TÌM KIẾM THEO PAGEABLE ĐỂ SAU TÌM HIỂU
+            // HIỂN THỊ TÌM KIẾM THEO PAGEABLE ĐỂ SAU TÌM HIỂU
 // function search(pageNumber){
 //
 //     if(pageNumber < 0){
@@ -232,3 +228,71 @@ function showDataSearch(data){
 // }
 //
 // search(0);
+
+function filterBySize(){
+    let size = "";
+    let arr = document.getElementsByName("size");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked === true) {
+            size = arr[i].value;
+           alert(size);
+        }
+
+    }
+
+
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+
+        },
+        url: "http://localhost:8080/home/size/" + size,
+        //xử lý khi thành công
+        success: function (data) {
+            console.log(data)
+            // document.getElementById("tbody").innerHTML =  showDetail(data);
+
+            showDataSearch(data);
+
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+function filterByColor(){
+    let color = "";
+    let arr = document.getElementsByName("color");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked === true) {
+            color = arr[i].value;
+
+        }
+
+    }
+
+
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+
+        },
+        url: "http://localhost:8080/home/color/" + color,
+        //xử lý khi thành công
+        success: function (data) {
+            console.log(data)
+            // document.getElementById("tbody").innerHTML =  showDetail(data);
+
+            showDataSearch(data);
+
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}

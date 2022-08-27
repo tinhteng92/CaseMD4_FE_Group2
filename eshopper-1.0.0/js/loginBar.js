@@ -1,13 +1,21 @@
-function loginBar() {
+let userName =  localStorage.getItem("username");
+function loginBar(userName){
+
     let str = "";
-    let token = localStorage.getItem("userName")
-    if (token != "") {
+    let token = localStorage.getItem("token")
+    if (userName != null) {
 
-        str += `<a href="" class="nav-item nav-link">Login</a>
-                    <a href="" class="nav-item nav-link">Register</a>`
+        str += `<a href="editprofile.html" class="nav-item nav-link" >Welcome ${userName}</a>
+                <a href="shop.html" class="nav-item nav-link" onClick="logout()">Logout</a>`
+
+                // <button class="nav-item nav-link" onClick="logout()">Logout</button>`
     } else {
-        str += `<input type="submit" value="Logout" className="btn btn-black" onClick="logout()">`
+        str += `<a href="login.html" class="nav-item nav-link">Login</a>
+                    <a href="register.html" class="nav-item nav-link">Register</a>`
     }
-}
-        document.getElementById("loginBar").innerHTML = str;
 
+    return str;
+
+}
+
+document.getElementById("loginBar").innerHTML = loginBar(userName);

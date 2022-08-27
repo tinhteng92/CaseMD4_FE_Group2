@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -28,7 +24,12 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-        <div ><h1 id="username"></h1></div>
+        <div >
+            <h1 id="username"></h1>
+
+            <a href="shop.html">Back to shop</a>
+
+        </div>
         <div class="col-sm-2"><a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://www.heidelberg.com/global/media/global_media/products___consumables/general_14/jpg_26/hd_icon_ecommerce_eshop_IMAGE_RATIO_1_5.jpg" width="200px" height="150px"></a></div>
     </div>
     <div class="row">
@@ -41,10 +42,12 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="home">
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <div class="form" action="##" method="post" id="registrationForm">
+
                         <div class="form-group">
                         </div>
                         <div class="form-group">
+                            <input id="idAccount" hidden>
 
                             <div class="col-xs-6">
                                 <label><h4>Tên khác hàng</h4></label>
@@ -87,13 +90,12 @@
                                 <button class="btn btn-lg btn-success" type="submit" class="btn btn-success" onclick="Editpr()"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                     <hr>
-        </div><!--/tab-content-->
+                </div><!--/tab-content-->
 
-    </div><!--/col-9-->
-</div><!--/row-->
+            </div><!--/col-9-->
+        </div><!--/row-->
     </div>
 </div>
-<script src="js/profile.js"></script>
-<script src="js/editprofile.js"></script>
+<script src="js/editProfile.js"></script>
